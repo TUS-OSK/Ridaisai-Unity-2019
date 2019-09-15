@@ -30,7 +30,7 @@ public class UI : MonoBehaviour
     {
         GameObject player;
 
-        player = GameObject.Find("player");
+        player = GameObject.Find("Player");
         player.transform.position = Vector3.up * 2;
 
         zanki--;

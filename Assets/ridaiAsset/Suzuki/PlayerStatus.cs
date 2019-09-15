@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class PlayerStatus //: MonoBehaviour
 {
-    //Unityjou de tukawanai nara MonoBehaviour ha tukawanai
+    /*
+ PlayerStatusの取説
+ オブジェクトの触れている物、接地状態を入れられるクラス（増えるかも）
+public PlayerStatus （名前） = new PlayerStatus(touchCol ,footOn); で新しく宣言できる
+playerStatus.Get～()で要素の取り出し、playerStatus.Set～(~の値)で要素の変更ができる
+ まあここまで言っといてなんだけどplayerでしか使わないので気にする必要はない
+ */
 
     //field
     public Collision touchCol;
@@ -23,16 +29,19 @@ public class PlayerStatus //: MonoBehaviour
             return touchCol;
         }
 
-    /*public Collision GetStepCol()
-       {
-            return stepCol;
-       }*/
+     public void SetTouchCol(Collision newCol)
+    {
+        touchCol = newCol;
+    }
 
-
-    public bool GetFooton()
+    public bool GetFootOn()
         {
             return footOn;
         }
 
+    public void SetFootOn(bool newFootOn)
+    {
+        footOn = newFootOn;
+    }
 
 }
