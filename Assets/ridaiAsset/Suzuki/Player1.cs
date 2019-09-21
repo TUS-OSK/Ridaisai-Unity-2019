@@ -5,20 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class Player1 : MonoBehaviour
 {
+    //GameRuleからの色々な情報を処理するプログラム
+    //jumpPowなどpublicになってる変数で適宜調整する
+
     private Rigidbody rb;
     public float jumpPow;
-    public int speedgap;
+    public float speedgap;
 
     public PlayerStatus playerStatus = new PlayerStatus(null ,true);
 
     private bool stumpready;
 
-    //　レイを飛ばす位置
+    //　レイを伸ばして接地判定に用いる
     [SerializeField]
     private Transform rayPosition;
     //　レイの距離
     [SerializeField]
-    private float rayRange = 0.6f;
+    public float rayRange = 0.6f;
 
     // Start is called before the first frame update
     void Start()
@@ -58,7 +61,7 @@ public class Player1 : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 direction;
-        direction = GameObject.Find("GameRule").GetComponent<KeyChecker>().direction;
+        direction = GetComponent<KeyChecker>().direction;
         rb.AddForce(direction);
 
         //速度を制限してる
@@ -77,7 +80,7 @@ public class Player1 : MonoBehaviour
     {
         playerStatus.SetTouchCol(col);
         //踏む準備ができているかどうかの情報と共にContactDealに渡す
-        GameObject.Find("GameRule").GetComponent<ContactDeal>().Touch(playerStatus,stumpready);
+        GetComponent<ContactDeal>().Touch(playerStatus,stumpready);
         stumpready = false;
     }
     void OnCollisionExit()
