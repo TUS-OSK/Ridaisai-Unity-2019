@@ -11,6 +11,8 @@ public class Player1 : MonoBehaviour
 
     public PlayerStatus playerStatus = new PlayerStatus(null ,true);
 
+    private bool stumpready;
+
     //　レイを飛ばす位置
     [SerializeField]
     private Transform rayPosition;
@@ -22,31 +24,13 @@ public class Player1 : MonoBehaviour
     void Start()
     { 
        rb = this.GetComponent<Rigidbody>();
+       stumpready = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*キーを受け取って、何か呼び出す
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Space))
-        {
-            if (playerStatus.footOn)
-            {
-                PlMove(Vector3.up*jumpPow,rb);
-            }
-
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            PlMove(Vector3.right * 25, rb);
-        }
-
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            PlMove(Vector3.left * 25, rb);
-        }*/
 
         //落ちた時の処理
         if (this.transform.position.y < -25)
@@ -57,6 +41,10 @@ public class Player1 : MonoBehaviour
         //接地状態の確認
         if (Physics.Linecast(rayPosition.position, (rayPosition.position - transform.up * rayRange))) 
         {
+            if(!playerStatus.GetFootOn())//空中から接地したら、踏む準備する
+            {
+                stumpready = true;
+            }
             playerStatus.SetFootOn(true);
         }
         else
@@ -88,17 +76,13 @@ public class Player1 : MonoBehaviour
     void OnCollisionEnter(Collision col)//CollisionはCollider,GameObjectとか色々包括してる
     {
         playerStatus.SetTouchCol(col);
-        GameObject.Find("GameRule").GetComponent<ContactDeal>().Touch(playerStatus,false);
+        //踏む準備ができているかどうかの情報と共にContactDealに渡す
+        GameObject.Find("GameRule").GetComponent<ContactDeal>().Touch(playerStatus,stumpready);
+        stumpready = false;
     }
     void OnCollisionExit()
     {
         playerStatus.SetTouchCol(null);
-    }
-
-    //移動に使うメソッド　なんかこの形式ではない気がする
-    void PlMove(Vector3 direction,Rigidbody rigidbody)
-    {
-            rigidbody.AddForce(direction);
     }
 
 }
