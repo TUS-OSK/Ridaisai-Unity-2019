@@ -17,8 +17,8 @@ public class TextLayer : MonoBehaviour
     void Update()
     {
         //レイヤーの名前
-        this.GetComponent().sortingLayerName = LayerName;
+       // this.GetComponent().sortingLayerName = LayerName;
         //Order in Layerの数値
-        this.GetComponent().sortingOrder = ortingOrder;
+        //this.GetComponent().sortingOrder = ortingOrder;
     }
 }
