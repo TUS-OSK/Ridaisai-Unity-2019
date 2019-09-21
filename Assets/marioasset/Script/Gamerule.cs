@@ -98,4 +98,7 @@ public class Gamerule : MonoBehaviour
         news.text = "";
     }
 
+
+
+
 }
