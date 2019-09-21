@@ -29,7 +29,7 @@ public class EnemyMove : MonoBehaviour
                 }
                 void OnCollisionEnter(Collision col)
                 {
-                    if (col.gameObject.CompareTag("wall"))
+                    if (col.gameObject.CompareTag("Wall"))
                     { if (dire) { dire = false; } else { dire = true; } }
                 }
             

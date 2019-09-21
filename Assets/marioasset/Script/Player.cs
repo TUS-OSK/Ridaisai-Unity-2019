@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
 
         int footing = script.footon;
 
-        if (Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Space))
         {
             if (footing >= 1)
             {
@@ -91,6 +91,6 @@ public class Player : MonoBehaviour
         {
             Gamerule.Touch(col);
         }
-        
+
     }
 }
