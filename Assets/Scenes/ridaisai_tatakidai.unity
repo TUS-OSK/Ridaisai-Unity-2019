@@ -553,8 +553,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c041e9698058a0d429a520fe27913244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpPow: 100
+  jumpPow: 300
   speedgap: 25
+  checker: {fileID: 0}
   rayPosition: {fileID: 1247180773}
   rayRange: 0.5
 --- !u!114 &1247180772
@@ -570,7 +571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
-  jumpPow: 100
+  jumpPow: 150
   movePow: 25
   decay: 0.7
 --- !u!4 &1247180773

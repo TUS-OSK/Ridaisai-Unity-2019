@@ -12,14 +12,13 @@ public class KeyChecker : MonoBehaviour
 
     PlayerStatus playerStatus;
 
-
     private void Start()
     {
-        playerStatus = GameObject.Find("Player").GetComponent<Player1>().playerStatus;
+        playerStatus = GetComponent<Player1>().playerStatus;
     }
 
     // Update is called once per frame
-    void Update()
+    public void Check()
     {
         //一回初期化
         direction = Vector3.zero;
@@ -60,4 +59,10 @@ public class KeyChecker : MonoBehaviour
         }
         //多分これを良い実装にするにはインターフェースの知識が必要なんだろなぁ…
     }
+
+    void Update()
+    {
+        Check();
+    }
+
 }

@@ -9,12 +9,13 @@ public class Player1 : MonoBehaviour
     //jumpPowなどpublicになってる変数で適宜調整する
 
     private Rigidbody rb;
-    public float jumpPow;
+    //このjumpPowに意味はないので穏便に消す
     public float speedgap;
 
     public PlayerStatus playerStatus = new PlayerStatus(null ,true);
 
-    private bool stumpready;
+    public bool stumpready;
+    public KeyChecker checker;
 
     //　レイを伸ばして接地判定に用いる
     [SerializeField]
@@ -23,11 +24,14 @@ public class Player1 : MonoBehaviour
     [SerializeField]
     public float rayRange = 0.6f;
 
+    //あとでKeyCehckerとかContactDealをPlayerStatusをとるクラスにする
+
     // Start is called before the first frame update
     void Start()
     { 
        rb = this.GetComponent<Rigidbody>();
        stumpready = false;
+       checker = GetComponent<KeyChecker>();
 
     }
 
@@ -42,7 +46,12 @@ public class Player1 : MonoBehaviour
         }
 
         //接地状態の確認
-        if (Physics.Linecast(rayPosition.position, (rayPosition.position - transform.up * rayRange))) 
+           }
+
+    void FixedUpdate()
+    {
+
+     if (Physics.Linecast(rayPosition.position, (rayPosition.position - transform.up * rayRange))) 
         {
             if(!playerStatus.GetFootOn())//空中から接地したら、踏む準備する
             {
@@ -56,13 +65,12 @@ public class Player1 : MonoBehaviour
         }
         //　接地確認用にレイを視覚化
         Debug.DrawLine(rayPosition.position, (rayPosition.position - transform.up * rayRange), Color.red);
-    }
 
-    void FixedUpdate()
-    {
+
         Vector3 direction;
         direction = GetComponent<KeyChecker>().direction;
         rb.AddForce(direction);
+        checker.Check();
 
         //速度を制限してる
         if ((rb.velocity.x) > speedgap)
