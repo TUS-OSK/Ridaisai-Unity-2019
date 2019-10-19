@@ -24,14 +24,19 @@ public class Enemy01 : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        _revers *= -1;
         Vector3 vector3 = gameObject.transform.localScale;
-        if (col.gameObject.tag == "wall")
+        if (col.gameObject.tag == "wall"||col.gameObject.tag == "Nokonoko")
         {
             Debug.Log("壁に当たる");
+            _revers *= -1;
             this.transform.eulerAngles += Vector3.down * 180f;
             vector3.x *= -1;
         }
         transform.localScale = vector3;
+    }
+
+    public void EnemyDeath()
+    {
+        Destroy(this.gameObject);
     }
 }

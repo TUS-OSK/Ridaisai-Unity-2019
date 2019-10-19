@@ -610,10 +610,7 @@ GameObject:
   - component: {fileID: 532827571905177870}
   - component: {fileID: 441425277573698758}
   - component: {fileID: 5697044083230213364}
-  - component: {fileID: 1227468604598407180}
   - component: {fileID: 537072716889117868}
-  - component: {fileID: 537072716889117865}
-  - component: {fileID: 537072716889117864}
   - component: {fileID: -8468703772940890859}
   m_Layer: 0
   m_Name: zombie_1 1
@@ -665,23 +662,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536546484377613474}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: -0.8, z: 0}
---- !u!114 &1227468604598407180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 536546484377613474}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 818eb9aa8d898dd4d8b318ca6d9a34b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &537072716889117868
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -693,36 +678,11 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!65 &537072716889117865
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 536546484377613474}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: -0.79, z: 0}
---- !u!114 &537072716889117864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 536546484377613474}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 818eb9aa8d898dd4d8b318ca6d9a34b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-8468703772940890859
 MonoBehaviour:
   m_ObjectHideFlags: 0
