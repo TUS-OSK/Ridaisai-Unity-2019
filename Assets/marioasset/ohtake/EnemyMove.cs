@@ -18,21 +18,21 @@ public class EnemyMove : MonoBehaviour
         if (nowspeed == 0) { if (dire) { dire = false; } else { dire = true; } }
         if (nowspeed < maxspeed)
         {
-
-            if (dire)
-            {
-                this.rigid.AddForce(transform.forward * power * -1);
-            }
-            else
-            {
-                this.rigid.AddForce(transform.forward * power);
-            }
-            void OnCollisionEnter(Collision col)
-            {
-                if (col.gameObject.CompareTag("Wall"))
-                { if (dire) { dire = false; } else { dire = true; } }
-            }
-
+            
+                if (dire)
+                {
+                    this.rigid.AddForce(transform.forward * power * -1);
+                }
+                else
+                {
+                    this.rigid.AddForce(transform.forward * power);
+                }
+                void OnCollisionEnter(Collision col)
+                {
+                    if (col.gameObject.CompareTag("wall"))
+                    { if (dire) { dire = false; } else { dire = true; } }
+                }
+            
         }
     }
 }
