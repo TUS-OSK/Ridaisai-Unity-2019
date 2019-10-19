@@ -651,7 +651,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 26b48dbd1d68146c09c9575501228c0d, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -682,7 +682,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818eb9aa8d898dd4d8b318ca6d9a34b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOn: 0
 --- !u!54 &537072716889117868
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -724,7 +723,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818eb9aa8d898dd4d8b318ca6d9a34b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOn: 0
 --- !u!114 &-8468703772940890859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -737,8 +735,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edec75c7f98ed45a0b416180639b0b18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AutoSpeed: 0.5
-  speed: {x: 0.05, y: 0, z: 0}
 --- !u!1 &536569349451905408
 GameObject:
   m_ObjectHideFlags: 0
