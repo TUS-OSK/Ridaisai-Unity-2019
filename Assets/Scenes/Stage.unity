@@ -137,6 +137,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6643696682342043481, guid: 117f35a084933426097e5881f0277dd4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6643696682342043491, guid: 117f35a084933426097e5881f0277dd4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -207,10 +212,20 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.025
       objectReference: {fileID: 0}
+    - target: {fileID: 6643696682342043490, guid: 117f35a084933426097e5881f0277dd4,
+        type: 3}
+      propertyPath: jumpPow
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643696682342043490, guid: 117f35a084933426097e5881f0277dd4,
+        type: 3}
+      propertyPath: movePow
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6643696682342043493, guid: 117f35a084933426097e5881f0277dd4,
         type: 3}
       propertyPath: rayRange
-      value: 0.04
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 6643696682342043493, guid: 117f35a084933426097e5881f0277dd4,
         type: 3}
@@ -227,15 +242,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6643696682342043490, guid: 117f35a084933426097e5881f0277dd4,
+    - target: {fileID: 6643696682342043493, guid: 117f35a084933426097e5881f0277dd4,
         type: 3}
-      propertyPath: jumpPow
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6643696682342043490, guid: 117f35a084933426097e5881f0277dd4,
-        type: 3}
-      propertyPath: movePow
-      value: 7
+      propertyPath: rayStart
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6643696682342043494, guid: 117f35a084933426097e5881f0277dd4,
         type: 3}
@@ -292,6 +302,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6644298575715247332, guid: 117f35a084933426097e5881f0277dd4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 117f35a084933426097e5881f0277dd4, type: 3}
 --- !u!1 &1480498156
@@ -306,7 +321,7 @@ GameObject:
   - component: {fileID: 1480498158}
   - component: {fileID: 1480498157}
   - component: {fileID: 1480498160}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
