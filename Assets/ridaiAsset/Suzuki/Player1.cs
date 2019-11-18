@@ -21,12 +21,13 @@ public class Player1 : MonoBehaviour
     private Transform rayPosition;
     //　レイの距離
     [SerializeField]
-    public float rayRange = 0.6f;
+    public float rayRange = 10.6f;
     public RaycastHit hit;
     private Vector3 distanceFromTargetObj;
 
     //missで使う
     public Transform savepoint;
+    public float rayStart;
 
 
     //あとでKeyCehckerとかContactDealをPlayerStatusをとるクラスにする
@@ -56,7 +57,7 @@ public class Player1 : MonoBehaviour
     void FixedUpdate()
     {
         //boxcastにして、isTriggerは無視するように改良したい        
-        if(Physics.BoxCast (rayPosition.position+Vector3.one, Vector3.one * 0.5f , -Vector3.up ,out hit , Quaternion.identity , rayRange))
+        if(Physics.BoxCast (rayPosition.position+(Vector3.up*rayStart), Vector3.one * 0.05f , -Vector3.up ,out hit , Quaternion.identity , rayRange))
         {
             if(!playerStatus.GetFootOn())//空中から接地したら、踏む準備する
             {
@@ -112,7 +113,7 @@ public class Player1 : MonoBehaviour
     {
         //レイを疑似的に視覚化
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position+Vector3.up + distanceFromTargetObj, Vector3.one * 0.5f);
+        Gizmos.DrawWireCube(transform.position+(Vector3.up*rayStart) + distanceFromTargetObj, Vector3.one * 0.05f);
     }
 
     void Miss()
