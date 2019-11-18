@@ -26,8 +26,9 @@ public class ContactDeal : MonoBehaviour
                 if (step)
                 {
                     //ノコノコを踏んだ時の処理
-                    //Debug.Log("nokokick");
-                    //Destroy(playerStatus.touchCol.gameObject);
+
+                    Debug.Log("nokokick");
+                    playerStatus.GetTouchCol().gameObject.GetComponent<Enemy01>().EnemyDeath();
                     playerStatus.SetTouchCol(null);
                 }
                 else
