@@ -10,6 +10,11 @@ public class Enemy01 : MonoBehaviour
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
+        if (Mathf.Abs(transform.localRotation.y - 90f) <0.01f)
+        {
+            _revers *= -1;
+           // Debug.Log("OK");
+        }
     }
 
     void Update()
@@ -19,7 +24,7 @@ public class Enemy01 : MonoBehaviour
 
     private void Move(float revers)
     {
-        transform.position += new Vector3(-0.1f * revers, 0f, 0f);
+        transform.position += new Vector3(-0.004f * revers, 0f, 0f);
     }
 
     private void OnTriggerEnter(Collider col)
@@ -27,7 +32,7 @@ public class Enemy01 : MonoBehaviour
         Vector3 vector3 = gameObject.transform.localScale;
         if (col.gameObject.tag == "wall"||col.gameObject.tag == "Nokonoko")
         {
-            Debug.Log("壁に当たる");
+            //Debug.Log("壁に当たる");
             _revers *= -1;
             this.transform.eulerAngles += Vector3.down * 180f;
             vector3.x *= -1;

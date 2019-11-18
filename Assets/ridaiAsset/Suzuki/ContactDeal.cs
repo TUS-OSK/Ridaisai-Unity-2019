@@ -26,14 +26,14 @@ public class ContactDeal : MonoBehaviour
                 if (step)
                 {
                     //ノコノコを踏んだ時の処理
-                    Debug.Log("nokokick");
+                    //Debug.Log("nokokick");
                     //Destroy(playerStatus.touchCol.gameObject);
                     playerStatus.SetTouchCol(null);
                 }
                 else
                 {
                     //ノコノコに当たった時の処理
-                    Debug.Log("noko");
+                    //Debug.Log("noko");
                 }
                 break;
 

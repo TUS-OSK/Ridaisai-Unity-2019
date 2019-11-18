@@ -6,10 +6,12 @@ public class Automatic : MonoBehaviour
     public GameObject ground3;
     public GameObject num1;
     public GameObject fallblock;
+    public GameObject kanransha;
+    public GameObject pentagon;
     private GameObject[] StageArray = null;
     
     float border = 0.9635f;
-    //float border2 = 4.542f;
+    //float border2 = 2.2f;
     //float border3 = 8.01f;
     //float border4 = 8.27f;
     [SerializeField]
@@ -20,7 +22,7 @@ public class Automatic : MonoBehaviour
         now = num1;
         StageArray = new GameObject[]
         {
-            num1,ground2,ground3,fallblock
+            num1,ground2,ground3,fallblock,kanransha,pentagon
         };
     }
     void Update()
@@ -29,8 +31,20 @@ public class Automatic : MonoBehaviour
         {
             CreateMap();
         }
+        //if (transform.position.x < border2)
+        //{
+        //    if (transform.position.y < -1.5f)
+        //    {
+        //        Vector3 save = new Vector3(border2 - 2.381f, 0.7f, 0);
+        //        transform.position = save;
+        //    }
+        //}
+        //if (transform.position.x > border2)
+        //{
+        //    border2 += 2.675f;
+        //}
     }
-    void CreateMap()
+        void CreateMap()
     {
         if (Mathf.Abs(now.transform.position.x - border) < 0.01f)
         {
