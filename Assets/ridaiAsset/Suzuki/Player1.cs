@@ -42,17 +42,6 @@ public class Player1 : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-
-        //落ちた時の処理
-        if (this.transform.position.y < -25)
-        {
-           // Gamerule.Miss();
-        }
-
-        //接地状態の確認
-           }
 
     void FixedUpdate()
     {
@@ -67,7 +56,7 @@ public class Player1 : MonoBehaviour
 
             //gizmo you
             distanceFromTargetObj =transform.up * (-hit.distance);
-            Debug.Log(hit.transform.name);
+            //Debug.Log(hit.transform.name);
         }
         else
         {
@@ -90,10 +79,6 @@ public class Player1 : MonoBehaviour
             rb.velocity = Vector3.up * rb.velocity[1] + Vector3.right * -speedgap;
         }
 
-        if(rb.position.y < -20)
-        {
-            Miss();
-        }
     }
 
     //接触状態の監視
@@ -103,6 +88,7 @@ public class Player1 : MonoBehaviour
         //踏む準備ができているかどうかの情報と共にContactDealに渡す
         GetComponent<ContactDeal>().Touch(playerStatus,stumpready);
         stumpready = false;
+        
     }
     void OnCollisionExit()
     {
@@ -114,11 +100,6 @@ public class Player1 : MonoBehaviour
         //レイを疑似的に視覚化
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position+(Vector3.up*rayStart) + distanceFromTargetObj, Vector3.one * 0.05f);
-    }
-
-    void Miss()
-    {
-        //ミスった時の処理を書こう！！
     }
 
 }

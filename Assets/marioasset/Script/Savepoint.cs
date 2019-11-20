@@ -18,13 +18,17 @@ public class Savepoint : MonoBehaviour
         {
             if (transform.position.y < -12f)
             {
-                Vector3 save = new Vector3(border2 - 2.381f, 5f, 0);
-                transform.position = save;
+                Respown();
             }
         }
         if (transform.position.x > border2)
         {
             border2 += 2.675f;
         }
+    }
+
+    public void Respown(){
+        Vector3 save = new Vector3(border2 - 2.381f, 0.5f, 0);
+        transform.position = save;
     }
 }
