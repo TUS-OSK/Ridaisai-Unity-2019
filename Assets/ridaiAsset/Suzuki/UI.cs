@@ -9,45 +9,28 @@ public class UI : MonoBehaviour
 
     public int zanki;
     public Text Lifes;
-    public Text news;
+    public Text State;
 
 
     // Start is called before the first frame update
     void Start()
     {
         Lifes.text = "Life × " + zanki;
-        news.text = "Gamestart!";
-        Invoke("Ilase", 3);
+        DisplayState("GameStart!!",3.0f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
+    public void DisplayState(string str,float flo){
+        State.text = str;
+        Invoke("Ilase", flo);
     }
 
-    public void Miss()
-    {
-        GameObject player;
-
-        player = GameObject.Find("Player");
-        player.transform.position = Vector3.up * 2;
-
-        zanki--;
-        Lifes.text = "Life ×" + zanki;
-        news.text = "Miss!";
-        Invoke("Ilase", 3);
-
-        if (zanki == 0)
-        {
-            //ゲームオーバー処理
-        }
-
+    public void Ilase (){
+        State.text = "";
     }
 
-
-    private void Ilase()
-    {
-        news.text = "";
+    public void Miss(){
+        zanki --;
+        Lifes.text = "Life × " + zanki;
+        DisplayState("Miss...",3.0f);
     }
 }

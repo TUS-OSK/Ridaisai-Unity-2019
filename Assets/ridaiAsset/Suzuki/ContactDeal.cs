@@ -8,6 +8,14 @@ public class ContactDeal : MonoBehaviour
 {
 
     public float starTime;
+    public GameObject UiObject;
+    public UI UiScript;
+
+    void Start(){
+        UiObject = GameObject.Find("UIDealer");
+        UiScript= UiObject.GetComponent<UI>();
+
+    }
 
     public void Touch(PlayerStatus playerStatus,bool step)
     {
@@ -29,7 +37,7 @@ public class ContactDeal : MonoBehaviour
                 {
                     //ノコノコを踏んだ時の処理
 
-                    Debug.Log("nokokick");
+                    //Debug.Log("nokokick");
                     playerStatus.GetTouchCol().gameObject.GetComponent<Enemy01>().EnemyDeath();
                     playerStatus.SetTouchCol(null);
 
@@ -44,7 +52,12 @@ public class ContactDeal : MonoBehaviour
                 {
                     //ノコノコに当たった時の処理
                     //Debug.Log("noko");
-                    GetComponent<Savepoint>().Respown();
+                    UiScript.Miss();
+
+                    if(0 >= UiScript.zanki)
+                    {
+                        GetComponent<Savepoint>().Respown();
+                    }
                 }
                 break;
 
@@ -58,11 +71,13 @@ public class ContactDeal : MonoBehaviour
 
                 switch(playerStatus.GetTouchCol().gameObject.GetComponent<ItemEnum>().kind){
                     case EnumTag.star:
-                    starTime = 30.0f;
+                    starTime = 10.0f;
+                    UiScript.DisplayState("POWER UP!!",10.0f);
                     break;
 
                     case EnumTag.icon:
-                    Debug.Log("icon");
+                    GetComponent<KeyChecker>().JumpUp(5.0f);
+                    UiScript.DisplayState("JUMP UP!!",5.0f);
                     break;
 
                     default:break; 
