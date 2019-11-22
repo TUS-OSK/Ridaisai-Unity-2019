@@ -12,6 +12,8 @@ public class KeyChecker : MonoBehaviour
 
     PlayerStatus playerStatus;
 
+    public float jumpUpTime;
+
     private void Start()
     {
         playerStatus = GetComponent<Player1>().playerStatus;
@@ -29,6 +31,9 @@ public class KeyChecker : MonoBehaviour
             if (playerStatus.footOn)
             {
                 direction += Vector3.up * jumpPow;
+                if (jumpUpTime > 0){
+                    direction += Vector3.up * jumpPow;
+                }
             }
 
         }
@@ -41,7 +46,7 @@ public class KeyChecker : MonoBehaviour
             }
             else
             {
-                direction += Vector3.right * movePow*decay;
+                direction += Vector3.right * movePow * decay;
             }
         }
 
@@ -63,6 +68,17 @@ public class KeyChecker : MonoBehaviour
     void Update()
     {
         Check();
+
+        if (jumpUpTime > 0){
+        jumpUpTime -= Time.deltaTime;
+        }else{
+         jumpUpTime = 0;
+        }
+    }
+
+    public void JumpUp(float flo)
+    {
+         jumpUpTime = flo;
     }
 
 }
