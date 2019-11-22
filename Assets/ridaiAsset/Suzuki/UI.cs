@@ -33,6 +33,7 @@ public class UI : MonoBehaviour
     public void Miss(){
         zanki --;
         if(zanki == 0){
+            GetComponent<JukeBox>().JukeBoxOn("gameover");
             SceneManager.LoadScene("Title");
         } 
         Lifes.text = "Life × " + zanki;

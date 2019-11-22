@@ -22,6 +22,7 @@ public class Savepoint : MonoBehaviour
         {
             if (transform.position.y < -12f)
             {
+                UiObject.GetComponent<JukeBox>().JukeBoxOn("fall");
                 if(!respowning)
                     Respown();
             }
