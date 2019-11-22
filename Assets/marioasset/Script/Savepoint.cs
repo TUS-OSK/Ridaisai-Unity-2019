@@ -5,10 +5,14 @@ using UnityEngine;
 public class Savepoint : MonoBehaviour
 {
     float border2 = 2.4f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public GameObject UiObject;
+    public UI UiScript;
+
+    public bool respowning = false;
+
+    void Start(){
+        UiObject = GameObject.Find("UIDealer");
+        UiScript= UiObject.GetComponent<UI>();
     }
 
     // Update is called once per frame
@@ -18,16 +22,23 @@ public class Savepoint : MonoBehaviour
         {
             if (transform.position.y < -12f)
             {
-                Respown();
+                if(!respowning)
+                    Respown();
             }
         }
         if (transform.position.x > border2)
         {
             border2 += 2.675f;
         }
+
+    }
+    void LateUpdate(){
+        respowning = false;
     }
 
     public void Respown(){
+        respowning = true;
+        UiScript.Miss();
         Vector3 save = new Vector3(border2 - 2.381f, 0.5f, 0);
         transform.position = save;
     }

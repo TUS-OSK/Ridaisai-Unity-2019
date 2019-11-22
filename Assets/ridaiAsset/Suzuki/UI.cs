@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class UI : MonoBehaviour
 {
@@ -30,6 +32,9 @@ public class UI : MonoBehaviour
 
     public void Miss(){
         zanki --;
+        if(zanki == 0){
+            SceneManager.LoadScene("Title");
+        } 
         Lifes.text = "Life × " + zanki;
         DisplayState("Miss...",3.0f);
     }

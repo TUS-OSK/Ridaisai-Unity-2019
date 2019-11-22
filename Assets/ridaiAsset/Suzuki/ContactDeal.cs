@@ -14,7 +14,6 @@ public class ContactDeal : MonoBehaviour
     void Start(){
         UiObject = GameObject.Find("UIDealer");
         UiScript= UiObject.GetComponent<UI>();
-
     }
 
     public void Touch(PlayerStatus playerStatus,bool step)
@@ -52,12 +51,8 @@ public class ContactDeal : MonoBehaviour
                 {
                     //ノコノコに当たった時の処理
                     //Debug.Log("noko");
-                    UiScript.Miss();
-
-                    if(0 >= UiScript.zanki)
-                    {
+                    if(!(GetComponent<Savepoint>().respowning))
                         GetComponent<Savepoint>().Respown();
-                    }
                 }
                 break;
 
@@ -76,6 +71,7 @@ public class ContactDeal : MonoBehaviour
                     break;
 
                     case EnumTag.icon:
+                    Debug.Log("ok");
                     GetComponent<KeyChecker>().JumpUp(5.0f);
                     UiScript.DisplayState("JUMP UP!!",5.0f);
                     break;

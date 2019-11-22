@@ -57,8 +57,11 @@ public class ItemBoxControllerNew : MonoBehaviour
             {
                 if(c.thisCollider.name == "Undertrigger")
                 {
-                    content.gameObject.SetActive(true);
-                    IsOpend = true;
+                    StartCoroutine(DelayMethod(0.5f, () => {
+                        content.gameObject.SetActive(true);
+                        IsOpend = true;    
+                    }));
+                    
                     StartCoroutine(WaitSwitchOff());
                     //Debug.Log("ok");
                     Destroy(transform.GetChild(0).gameObject);
@@ -77,6 +80,11 @@ public class ItemBoxControllerNew : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
         IsActive = false;
+    }
+
+    private IEnumerator DelayMethod(float delayTime, System.Action action){
+        yield return new WaitForSeconds(delayTime);
+        action();
     }
 }
 //GameObject.Find("Icons_4(Clone)").transform.IsChildOf(transform)
