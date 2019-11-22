@@ -7,7 +7,7 @@ using UnityEngine;
 public class ContactDeal : MonoBehaviour
 {
 
-    public float star;
+    public float starTime;
 
     public void Touch(PlayerStatus playerStatus,bool step)
     {
@@ -25,7 +25,7 @@ public class ContactDeal : MonoBehaviour
         switch (touchTag)
         {
             case "Nokonoko":
-                if (step||(star > 0))
+                if (step||(starTime > 0))
                 {
                     //ノコノコを踏んだ時の処理
 
@@ -33,9 +33,11 @@ public class ContactDeal : MonoBehaviour
                     playerStatus.GetTouchCol().gameObject.GetComponent<Enemy01>().EnemyDeath();
                     playerStatus.SetTouchCol(null);
 
+                    //destroyには若干ラグがある
+
                     //一瞬無敵にする
-                    if(star <= 1){
-                        star = 1;
+                    if(starTime<= 1){
+                        starTime = 1;
                     }
                 }
                 else
@@ -51,9 +53,20 @@ public class ContactDeal : MonoBehaviour
                 Debug.Log("Goal!");
                 break;
 
-            case "Item":
+            case "Star":
                 //アイテムに当たった時の処理
-                star = 30.0f;
+
+                switch(playerStatus.GetTouchCol().gameObject.GetComponent<ItemEnum>().kind){
+                    case EnumTag.star:
+                    starTime = 30.0f;
+                    break;
+
+                    case EnumTag.icon:
+                    Debug.Log("icon");
+                    break;
+
+                    default:break; 
+                }
                 break;
 
             default:break;
@@ -63,11 +76,11 @@ public class ContactDeal : MonoBehaviour
 
     void Update(){
         //無敵時間をカウントダウンする
-        if(star > 0){
-        star -= Time.deltaTime;
+        if(starTime > 0){
+        starTime -= Time.deltaTime;
         }
         else{
-            star = 0;
+            starTime = 0;
         }
     }
 }
