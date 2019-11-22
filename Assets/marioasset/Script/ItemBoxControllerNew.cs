@@ -50,6 +50,7 @@ public class ItemBoxControllerNew : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("あたった");
         if (collision.gameObject.CompareTag("Player"))
         {
             foreach(ContactPoint c in collision.contacts)
@@ -61,11 +62,12 @@ public class ItemBoxControllerNew : MonoBehaviour
                     StartCoroutine(WaitSwitchOff());
                     //Debug.Log("ok");
                     Destroy(transform.GetChild(0).gameObject);
+                    Destroy(transform.GetChild(1).gameObject);
                     break;
                 }
                 if(c.thisCollider.name == "Icons_4(Clone)")
                 {
-                    Destroy(transform.GetChild(1).gameObject);
+                        Destroy(transform.GetChild(0).gameObject);
                 }
             }
         }
@@ -77,3 +79,4 @@ public class ItemBoxControllerNew : MonoBehaviour
         IsActive = false;
     }
 }
+//GameObject.Find("Icons_4(Clone)").transform.IsChildOf(transform)
