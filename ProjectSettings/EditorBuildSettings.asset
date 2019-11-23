@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage.unity
     guid: 98edc4da8a30748a993aadfed6a91869
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ridaisai_tatakidai.unity
     guid: 771c6f12b1f8546e5b418c61d9abafd0
+  - enabled: 1
+    path: Assets/Scenes/Score.unity
+    guid: 0acc8e0fa932a4ba598896df6527ff34
   m_configObjects: {}
