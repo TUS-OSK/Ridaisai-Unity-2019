@@ -77,8 +77,8 @@ public class ContactDeal : MonoBehaviour
 
                     case EnumTag.icon:
                     Debug.Log("ok");
-                    GetComponent<KeyChecker>().JumpUp(5.0f);
-                    UiScript.DisplayState("JUMP UP!!",5.0f);
+                    GetComponent<KeyChecker>().JumpUp(10.0f);
+                    UiScript.DisplayState("JUMP UP!!",10.0f);
                     break;
 
                     default:break; 
