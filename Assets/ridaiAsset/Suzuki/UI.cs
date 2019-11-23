@@ -33,7 +33,7 @@ public class UI : MonoBehaviour
     public void Miss(){
         zanki --;
         if(zanki == 0){
-            SceneManager.LoadScene("Title");
+            SceneManager.LoadScene("Score");
         } 
         Lifes.text = "Life × " + zanki;
         DisplayState("Miss...",3.0f);
