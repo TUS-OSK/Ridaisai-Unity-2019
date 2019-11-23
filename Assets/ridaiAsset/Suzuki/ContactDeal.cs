@@ -46,6 +46,8 @@ public class ContactDeal : MonoBehaviour
                     if(starTime<= 1){
                         starTime = 1;
                     }
+                    //音鳴らす
+                    UiObject.GetComponent<JukeBox>().JukeBoxOn("hunda");
                 }
                 else
                 {
