@@ -9,6 +9,7 @@ public class Savepoint : MonoBehaviour
     public UI UiScript;
 
     public bool respowning = false;
+    private bool fall = false;
 
     void Start(){
         UiObject = GameObject.Find("UIDealer");
@@ -22,14 +23,20 @@ public class Savepoint : MonoBehaviour
         {
             if (transform.position.y < -12f)
             {
-                UiObject.GetComponent<JukeBox>().JukeBoxOn("fall");
                 if(!respowning)
                     Respown();
+                    fall = false;
             }
         }
         if (transform.position.x > border2)
         {
             border2 += 2.675f;
+        }
+
+        if ((transform.position.y < -1.0f)&&!fall){
+
+            UiObject.GetComponent<JukeBox>().JukeBoxOn("fall");
+            fall = true;
         }
 
     }

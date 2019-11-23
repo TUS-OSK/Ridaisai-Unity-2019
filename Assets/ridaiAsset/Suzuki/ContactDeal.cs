@@ -53,6 +53,7 @@ public class ContactDeal : MonoBehaviour
                 {
                     //ノコノコに当たった時の処理
                     //Debug.Log("noko");
+                    UiObject.GetComponent<JukeBox>().JukeBoxOn("gameover");
                     if(!(GetComponent<Savepoint>().respowning))
                         GetComponent<Savepoint>().Respown();
                 }
@@ -65,6 +66,8 @@ public class ContactDeal : MonoBehaviour
 
             case "Star":
                 //アイテムに当たった時の処理
+
+                UiObject.GetComponent<JukeBox>().JukeBoxOn("zommbi");
 
                 switch(playerStatus.GetTouchCol().gameObject.GetComponent<ItemEnum>().kind){
                     case EnumTag.star:

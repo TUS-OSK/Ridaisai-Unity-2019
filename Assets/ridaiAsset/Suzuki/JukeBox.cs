@@ -18,16 +18,23 @@ public class JukeBox : MonoBehaviour
     }
 
     public void JukeBoxOn(string str){
+        audioSource.volume = 1.0f;
+        audioSource.pitch = 0.65f;
         switch (str)
         {
             case "bgm" :audioSource.clip = bgm;break;
             case "block" :audioSource.clip = block;break;
             case "fall" :audioSource.clip = fall;break;
-            case "gameover" :audioSource.clip = gameover;break;
+            case "gameover" :
+            audioSource.clip = gameover;
+            audioSource.volume = 0.5f;
+            audioSource.pitch = 0.65f;
+            break;
             case "hunda" :audioSource.clip = hunda;break;
             case "zommbi" :audioSource.clip = zommbi;break;
             default:break;
         }
         audioSource.Play();
+        
     }
 }
